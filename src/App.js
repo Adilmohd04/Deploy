@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import Custom from './components/Custom';
+import Footer from './components/Footer';
+import Last from './components/Last';
+import Navbar from './components/Navbar';
+import Third from './components/Third';
+import Loading from './components/Loading';
+import './index.css';
+import { useState, useEffect } from 'react';
+import Card from './components/Card';
+import Sales from './components/Sales';
+import Connect from './components/Connect';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+   
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {loading ? (
+        <Loading /> 
+      ) : (
+        <div> 
+          <Navbar />
+          <Third />
+          <Custom />
+          <Connect/>
+          <Sales/>
+          <Card/>
+          <Last />
+          <Footer />
+        </div>
+      )}
     </div>
   );
 }
