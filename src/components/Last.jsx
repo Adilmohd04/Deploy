@@ -45,7 +45,7 @@ const Last = () => {
           <img src="/assets/logo-full.svg" alt="Printify Logo" className="h-10" />
           <div className="flex space-x-4">
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/Last/facebook-icon.svg" alt="Facebook" className="w-6 h-6" />
+              <img src="/assets/last/facebook-icon.svg" alt="Facebook" className="w-6 h-6" />
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               <img src="/assets/last/instagram-icon.svg" alt="Instagram" className="w-6 h-6" />
