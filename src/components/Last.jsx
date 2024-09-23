@@ -48,19 +48,19 @@ const Last = () => {
               <img src="/assets/Last/facebook-icon.svg" alt="Facebook" className="w-6 h-6" />
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/Last/instagram-icon.svg" alt="Instagram" className="w-6 h-6" />
+              <img src="/assets/last/instagram-icon.svg" alt="Instagram" className="w-6 h-6" />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/Last/linkedin-icon.svg" alt="LinkedIn" className="w-6 h-6" />
+              <img src="/assets/last/linkedin-icon.svg" alt="LinkedIn" className="w-6 h-6" />
             </a>
             <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/Last/youtube-icon.svg" alt="YouTube" className="w-6 h-6" />
+              <img src="/assets/last/youtube-icon.svg" alt="YouTube" className="w-6 h-6" />
             </a>
             <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/Last/Tiktok-1.svg" alt="TikTok" className="w-6 h-6" />
+              <img src="/assets/last/Tiktok-1.svg" alt="TikTok" className="w-6 h-6" />
             </a>
             <a href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/Last/reddit-icon.svg" alt="Reddit" className="w-6 h-6" />
+              <img src="/assets/last/reddit-icon.svg" alt="Reddit" className="w-6 h-6" />
             </a>
           </div>
         </div>

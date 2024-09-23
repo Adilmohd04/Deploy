@@ -10,6 +10,10 @@ import { useState, useEffect } from 'react';
 import Card from './components/Card';
 import Sales from './components/Sales';
 import Connect from './components/Connect';
+import Tshirt from './components/Tshirt';
+
+import Waterplant from './components/Waterplant';
+import Shop from './components/Shop';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,11 +34,14 @@ function App() {
       ) : (
         <div> 
           <Navbar />
+          <Tshirt/>
           <Third />
+          <Shop/>
           <Custom />
           <Connect/>
           <Sales/>
           <Card/>
+          <Waterplant/>
           <Last />
           <Footer />
         </div>
