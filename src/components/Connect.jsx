@@ -14,7 +14,6 @@ const svgPaths = {
   Amazon: '/assets/connect/printify-E3TBSF5R.svg',
 };
 
-// Predefined card positions for each platform
 const cardOffsets = {
   Etsy: { x: 200, y: -100 },
   Shopify: { x: -200, y: 100 },
@@ -31,17 +30,15 @@ const cardOffsets = {
 const Connect = () => {
   const platforms = Object.keys(svgPaths);
   const [animate, setAnimate] = useState(false);
-  const connectRef = useRef(null); // Reference to the main component
-
-  // Set up IntersectionObserver to trigger animation when component is fully visible
+  const connectRef = useRef(null); 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          setTimeout(() => setAnimate(true), 100); // Delay animation trigger after visibility
+          setTimeout(() => setAnimate(true), 100);
         }
       },
-      { threshold: 0.5 } // Trigger when 50% of the component is visible
+      { threshold: 0.5 } 
     );
 
     if (connectRef.current) {
@@ -57,7 +54,7 @@ const Connect = () => {
 
   return (
     <div
-      ref={connectRef} // Attach the reference to the main component
+      ref={connectRef} 
       style={{
         position: 'relative',
         padding: '40px',
@@ -66,25 +63,24 @@ const Connect = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        overflow: 'hidden', // Make sure no overflow affects visibility
+        overflow: 'hidden', 
       }}
     >
-      {/* Arrow Background */}
+    
       <div
         style={{
           background: `url('/assets/connect/arrow-down-S7NHO6CI.svg') no-repeat center center`,
           backgroundSize: 'contain',
           width: '220px',
           height: '40px',
-          position: 'absolute', // Set position to absolute
-          top: '0', // Align to the top
-          left: '50%', // Center horizontally
-          transform: 'translateX(-50%)', // Adjust for centering
-          zIndex: 1, // Ensure it's above the background but below cards
+          position: 'absolute', 
+          top: '0', 
+          left: '50%', 
+          transform: 'translateX(-50%)', 
+          zIndex: 1, 
         }}
       />
 
-      {/* Text Section */}
       <div
         style={{
           textAlign: 'center',
@@ -103,7 +99,6 @@ const Connect = () => {
         </p>
       </div>
 
-      {/* Platforms Cards Section */}
       <div
         className="platforms-section"
         style={{
@@ -115,7 +110,6 @@ const Connect = () => {
           alignItems: 'center',
         }}
       >
-        {/* Background Tree SVG */}
         <svg
           fill="none"
           height="430"
@@ -125,7 +119,7 @@ const Connect = () => {
             position: 'absolute',
             top: '50px',
             left: 'calc(50% - 488px)',
-            zIndex: 0, // Set lower than cards
+            zIndex: 0, 
           }}
         >
           <path
@@ -134,11 +128,10 @@ const Connect = () => {
           />
         </svg>
 
-        {/* Other platform cards */}
         {platforms.map((platform) => {
-          if (platform === 'Amazon') return null; // Exclude Amazon from dynamic cards
+          if (platform === 'Amazon') return null; 
 
-          const { x = 0, y = 0 } = cardOffsets[platform] || {}; // Fallback values if x and y are undefined
+          const { x = 0, y = 0 } = cardOffsets[platform] || {}; 
           return (
             <div
               key={platform}
@@ -153,11 +146,17 @@ const Connect = () => {
                 borderRadius: '10px',
                 boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)',
                 transform: animate
-                  ? `translate(${x}px, ${y}px)`
-                  : 'translate(0px, 0px)', // Initial state at main card
+                  ? `translate(${x}px, ${y}px)` 
+                  : 'translate(0px, 0px)',
                 transition: 'transform 1s ease-in-out',
                 zIndex: 2,
+                cursor: 'pointer', 
               }}
+             
+              onMouseEnter={(e) => (e.currentTarget.style.transform += ' scale(1.2)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = animate
+                ? `translate(${x}px, ${y}px)` 
+                : 'translate(0px, 0px)')}
             >
               <img
                 src={svgPaths[platform]}
@@ -168,9 +167,9 @@ const Connect = () => {
           );
         })}
 
-        {/* Main Amazon Card */}
+        
         {(() => {
-          const { x, y } = cardOffsets['Amazon']; // Get position for Amazon card
+          const { x, y } = cardOffsets['Amazon']; 
           return (
             <div
               style={{
@@ -184,8 +183,11 @@ const Connect = () => {
                 borderRadius: '12px',
                 boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
                 zIndex: 3,
-                transform: `translate(${x}px, ${y}px)`, // Apply position for Amazon
+                transform: `translate(${x}px, ${y}px)`, 
+                cursor: 'pointer', 
               }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform += ' scale(1.2)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = `translate(${x}px, ${y}px)`)}
             >
               <img
                 src={svgPaths['Amazon']}
