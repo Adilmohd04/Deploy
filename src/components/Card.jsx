@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-// Array of testimonials with profile images
 const testimonials = [
   {
     name: "Robert A. Voltaire",
@@ -49,7 +48,7 @@ const starSvg = 'assets/cards/star.svg';
 
 const Card = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const cardsPerPage = 2.5;
+  const cardsPerPage = 2;
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
 
@@ -115,27 +114,13 @@ const Card = () => {
                 marginTop: '20px',
                 cursor: 'grab',
               }}
-              onMouseDown={(e) => {
-                const startX = e.pageX;
-                const handleMouseMove = (moveEvent) => {
-                  const deltaX = startX - moveEvent.pageX;
-                  const newIndex = Math.max(0, Math.min(Math.ceil(deltaX / 300), testimonials.length - Math.ceil(cardsPerPage)));
-                  setActiveIndex(newIndex);
-                };
-                const handleMouseUp = () => {
-                  document.removeEventListener('mousemove', handleMouseMove);
-                  document.removeEventListener('mouseup', handleMouseUp);
-                };
-                document.addEventListener('mousemove', handleMouseMove);
-                document.addEventListener('mouseup', handleMouseUp);
-              }}
             >
               <div
                 style={{
                   display: 'flex',
                   transform: `translateX(-${activeIndex * (100 / cardsPerPage)}%)`,
                   transition: 'transform 0.3s ease',
-                  width: `${Math.min(testimonials.length, Math.ceil(cardsPerPage)) * 300}px`,
+                  width: `${testimonials.length * 300}px`,  
                 }}
               >
                 {testimonials.map((testimonial, index) => (
@@ -169,7 +154,6 @@ const Card = () => {
               </div>
             </motion.div>
 
-            {/* Pagination Dots */}
             <div className="flex justify-center mt-4">
               {Array(Math.ceil(testimonials.length / cardsPerPage))
                 .fill()
