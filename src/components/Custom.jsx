@@ -37,7 +37,7 @@ const Custom = () => {
   ];
 
   const ref = React.useRef(null);
-  const inView = useInView(ref, { once: true }); // Trigger animation only once when in view
+  const inView = useInView(ref, { once: true, amount: 1 }); // Trigger only when fully visible
 
   return (
     <div
@@ -51,7 +51,7 @@ const Custom = () => {
           className="flex flex-col items-center text-center max-w-xs md:max-w-sm p-4"
           custom={i}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"} // Animate when in view
+          animate={inView ? 'visible' : 'hidden'} // Animate when fully visible
           variants={slideInVariants}
         >
           <img src={feature.imgSrc} alt={feature.title} className="w-28 h-28 mb-6" />
